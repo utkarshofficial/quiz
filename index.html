@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: black;
+            color: white;
+            align-items: center;
+            text-align: center;
+        }
+        
+        #ques {
+            width: 100%;
+            font-size: 30pt;
+        }
+        
+        #streak {
+            margin-right: 30vw;
+        }
+        
+        .container {
+            margin: 10px;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: repeat(2, 50%);
+        }
+        
+        button {
+            width: 100%;
+            background-color: rgb(0, 0, 0);
+            padding: 25px;
+            color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+            font-size: 30pt;
+            cursor: pointer;
+        }
+        
+        #hint {
+            color: rgb(0, 153, 255);
+            /* cursor: pointer; */
+        }
+        
+        a {
+            color: rgb(255, 208, 0);
+        }
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        /* button:hover {
+    color: white;
+    background-color: rgb(172, 169, 0)!important;
+} */
+    </style>
+    <title>Quiz</title>
+</head>
+
+<body id="bodybox">
+    <div class="container">
+        <p>Streak: <span id="streak">0</span> Score: <span id="score">0</span></p>
+        <p id="ques">
+            <span id="varA">a</span>
+            <span id="oprator" style="color: rgb(255, 134, 35);">+</span>
+            <span id="varB">b</span>
+            <span>=</span>
+            <span style="color: rgb(255, 134, 35);">?</span>
+        </p>
+        <div class="options ">
+            <button class="btn" onclick="check(this.id) " id="option0">85</button>
+            <button class="btn " onclick="check(this.id) " id="option1">85</button>
+            <button class="btn " onclick="check(this.id) " id="option2">95</button>
+            <button class="btn " onclick="check(this.id) " id="option3">85</button>
+        </div>
+        <br>
+        <p id="hint" onclick="showHint()">Hint</p>
+
+        <footer>Developed by <a target="_blank" href="https://www.instagram.com/utkarshencoder/">Utkarsh Sharma</a></footer>
+
+    </div>
+    <script>
+        var GlobalAnswer;
+        var currentScore = 0;
+        var Streak = 0;
+        var Hint = -1;
+        var isHintUsed = 0;
+
+        // this will find the element in array is present or not
+        function find(arr, target) {
+            for (let i = 0; i < arr.lenght; i++) {
+                if (arr[i] == target) {
+                    return 1;
+                }
+            }
+            return 0;
+        }
+
+        function optionGenerator(answer) {
+            GlobalAnswer = answer;
+            var ansOptionNumber = (Math.floor(Math.random() * 4));
+            Hint = ansOptionNumber;
+            // for storing all options answer 
+            let options = [answer];
+            for (let i = 0; i < 4; i++) {
+                var option = document.getElementById("option" + i);
+                if (i == ansOptionNumber) {
+                    option.innerHTML = answer;
+                } else {
+                    // for temporory options value is near to answer
+                    let temp = (Math.floor(Math.random() * 199));
+                    // generating random values that near to answer
+                    while (1) {
+                        if ((answer - 30 < temp) && (temp < answer + 30) && find(options, temp) == 0) {
+                            options.push(temp);
+                            option.innerHTML = temp;
+                            break;
+                        }
+                        temp = (Math.floor(Math.random() * 199));
+                    }
+                }
+            }
+        }
+
+        function qGeneratorAddition() {
+            let a = (Math.floor(Math.random() * 98) + 1);
+            let b = (Math.floor(Math.random() * 98) + 1);
+            varA.innerHTML = a;
+            oprator.innerHTML = '+';
+            varB.innerHTML = b;
+            optionGenerator((a + b));
+        }
+        qGeneratorAddition();
+
+        function check(click) {
+            var clicked = document.getElementById(click);
+            if (clicked.innerHTML == GlobalAnswer) {
+                clicked.style.transistionDuration = "1s!important";
+                clicked.style.backgroundColor = "green";
+                if (!isHintUsed) {
+                    currentScore += 10;
+                    Streak += 1;
+                }
+                score.innerHTML = currentScore;
+                if (Streak > 9) {
+                    streak.innerHTML = Streak + "🔥";
+                } else {
+                    streak.innerHTML = Streak;
+                }
+                var btns = document.getElementsByClassName("btn");
+                for (let i = 0; i < 4; i++) {
+                    btns[i].style.backgroundColor = "black";
+                }
+                isHintUsed = 0;
+                qGeneratorAddition();
+            } else {
+                isHintUsed = 1;
+                clicked.style.transistionDuration = "1s";
+                clicked.style.backgroundColor = "red";
+                Streak = 0;
+                streak.innerHTML = Streak;
+            }
+        }
+
+        function showHint() {
+            document.getElementById("option" + Hint).style.backgroundColor = "green";
+            isHintUsed = 1;
+        }
+    </script>
+</body>
+
+</html>
