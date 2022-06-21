@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Quiz</title>
+</head>
+
+<body id="bodybox">
+    <div class="container">
+        <p>Streak: <span id="streak">0</span> Score: <span id="score">0</span></p>
+        <p id="ques">
+            <span id="varA">a</span>
+            <span id="oprator" style="color: rgb(255, 134, 35);">+</span>
+            <span id="varB">b</span>
+            <span>=</span>
+            <span style="color: rgb(255, 134, 35);">?</span>
+        </p>
+        <div class="options ">
+            <button class="btn" onclick="check(this.id) " id="option0"></button>
+            <button class="btn " onclick="check(this.id) " id="option1"></button>
+            <button class="btn " onclick="check(this.id) " id="option2"></button>
+            <button class="btn " onclick="check(this.id) " id="option3"></button>
+        </div>
+        <br>
+        <span id="hint" onclick="showHint()">Hint</span>
+        <p style="display: none;" id="operator">-</p>
+
+        <footer>Developed by <a target="_blank" href="https://www.instagram.com/utkarshencoder/">Utkarsh Sharma</a></footer>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

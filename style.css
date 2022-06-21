@@ -1,0 +1,116 @@
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: black;
+    color: white;
+    align-items: center;
+    text-align: center;
+}
+
+#ques {
+    width: 100%;
+    font-size: 30pt;
+}
+
+#streak {
+    margin-right: 30vw;
+}
+
+.containerhome {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    margin: 10px;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
+
+.fonts {
+    font-size: 20pt!important;
+}
+
+#div {
+    background-color: rgb(255, 127, 42);
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+}
+
+#multi {
+    background-color: rgb(47, 150, 0);
+    padding: 10px;
+    border: none;
+    margin-bottom: 10px;
+    font-weight: bolder;
+}
+
+#plus {
+    background-color: rgb(181, 0, 218);
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+}
+
+#minus {
+    background-color: rgb(0, 158, 197);
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+}
+
+.menu {
+    max-width: 400px;
+    flex-direction: column;
+}
+
+.marBottom {
+    margin-bottom: 10px;
+}
+
+.marTop {
+    margin-top: 40px;
+}
+
+.btn {
+    width: 99%;
+    background-color: rgb(0, 0, 0);
+    padding: 25px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-size: 30pt;
+    cursor: pointer;
+}
+
+#hint {
+    color: rgb(0, 153, 255);
+    cursor: pointer;
+}
+
+a {
+    color: rgb(255, 208, 0);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+/* button:hover {
+color: white;
+background-color: rgb(172, 169, 0)!important;
+} */
