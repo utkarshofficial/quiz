@@ -81,6 +81,38 @@ body {
     margin-top: 40px;
 }
 
+.slidercontainer {
+    width: 100%;
+    border: 3px solid;
+    color: white;
+    text-shadow: 5px;
+    margin: 0;
+    font-weight: bolder;
+    font-size: 20pt;
+    border-radius: 10px;
+}
+
+.slider {
+    width: 70%;
+}
+
+.highsc {
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    color: black;
+    font-size: 18pt;
+}
+
+#diff {
+    margin: 0;
+}
+
+#highscore {
+    font-weight: bolder;
+    color: rgb(187, 0, 178);
+}
+
 .btn {
     width: 99%;
     background-color: rgb(0, 0, 0);
@@ -114,3 +146,21 @@ footer {
 color: white;
 background-color: rgb(172, 169, 0)!important;
 } */
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    font-size: 22pt;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #5f5f5f;
+}
