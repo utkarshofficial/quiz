@@ -5,177 +5,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            background-color: black;
-            color: white;
-            align-items: center;
-            text-align: center;
-        }
-        
-        #ques {
-            width: 100%;
-            font-size: 30pt;
-        }
-        
-        #streak {
-            margin-right: 30vw;
-        }
-        
-        .container {
-            margin: 10px;
-        }
-        
-        .options {
-            display: grid;
-            grid-template-columns: repeat(2, 50%);
-        }
-        
-        button {
-            width: 100%;
-            background-color: rgb(0, 0, 0);
-            padding: 25px;
-            color: white;
-            border: 2px solid white;
-            border-radius: 10px;
-            font-size: 30pt;
-            cursor: pointer;
-        }
-        
-        #hint {
-            color: rgb(0, 153, 255);
-            /* cursor: pointer; */
-        }
-        
-        a {
-            color: rgb(255, 208, 0);
-        }
-        
-        footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            margin-bottom: 10px;
-        }
-        /* button:hover {
-    color: white;
-    background-color: rgb(172, 169, 0)!important;
-} */
-    </style>
+    <link rel="stylesheet" href="style.css">
     <title>Quiz</title>
+    <style>
+        img {
+            margin-top: 20px;
+            width: 120px;
+            border-radius: 25px;
+            border-bottom: 5px solid red;
+        }
+    </style>
 </head>
 
 <body id="bodybox">
-    <div class="container">
-        <p>Streak: <span id="streak">0</span> Score: <span id="score">0</span></p>
-        <p id="ques">
-            <span id="varA">a</span>
-            <span id="oprator" style="color: rgb(255, 134, 35);">+</span>
-            <span id="varB">b</span>
-            <span>=</span>
-            <span style="color: rgb(255, 134, 35);">?</span>
-        </p>
-        <div class="options ">
-            <button class="btn" onclick="check(this.id) " id="option0">85</button>
-            <button class="btn " onclick="check(this.id) " id="option1">85</button>
-            <button class="btn " onclick="check(this.id) " id="option2">95</button>
-            <button class="btn " onclick="check(this.id) " id="option3">85</button>
+    <div class="containerhome">
+        <div>
+            <img id="logo" src="https://i.pinimg.com/736x/8f/7a/a3/8f7aa39c8f322935683ad1da07c64e80.jpg" alt="logo">
+        </div>
+        <div id="arithmetic" class="alltype menu">
+            <button class="btn fonts" onclick="location.href='addition.html'" id="plus">Addition<br>+</button>
+            <button class="btn fonts" onclick=" location.href='substract.html'" id="minus">Substract<br>-</button>
+            <button class="btn fonts " onclick=" location.href='multiply.html' " id="multi">Multiply<br>x</button>
+            <button class="btn fonts" onclick=" location.href='divide.html'" id="div">Divide<br>÷</button>
+            <button style="padding: 10px;" class="btn fonts" onclick="back()">← Back</button>
+
+        </div>
+        <div id="mainMenu" class="menu ">
+            <button class="btn marTop marBottom " onclick="showMenu() ">New Game</button>
+            <button class="btn marBottom " onclick="openUrl() ">Contact Us</button>
+            <button class="btn marBottom " onclick="openUrl() ">Support</button>
         </div>
         <br>
-        <p id="hint" onclick="showHint()">Hint</p>
 
-        <footer>Developed by <a target="_blank" href="https://www.instagram.com/utkarshencoder/">Utkarsh Sharma</a></footer>
+        <footer>Developed by <a target="_blank " href="https://www.instagram.com/utkarshencoder/ ">Utkarsh Sharma</a></footer>
 
     </div>
     <script>
-        var GlobalAnswer;
-        var currentScore = 0;
-        var Streak = 0;
-        var Hint = -1;
-        var isHintUsed = 0;
-
-        // this will find the element in array is present or not
-        function find(arr, target) {
-            for (let i = 0; i < arr.lenght; i++) {
-                if (arr[i] == target) {
-                    return 1;
-                }
-            }
-            return 0;
-        }
-
-        function optionGenerator(answer) {
-            GlobalAnswer = answer;
-            var ansOptionNumber = (Math.floor(Math.random() * 4));
-            Hint = ansOptionNumber;
-            // for storing all options answer 
-            let options = [answer];
-            for (let i = 0; i < 4; i++) {
-                var option = document.getElementById("option" + i);
-                if (i == ansOptionNumber) {
-                    option.innerHTML = answer;
-                } else {
-                    // for temporory options value is near to answer
-                    let temp = (Math.floor(Math.random() * 199));
-                    // generating random values that near to answer
-                    while (1) {
-                        if ((answer - 30 < temp) && (temp < answer + 30) && find(options, temp) == 0) {
-                            options.push(temp);
-                            option.innerHTML = temp;
-                            break;
-                        }
-                        temp = (Math.floor(Math.random() * 199));
-                    }
-                }
-            }
-        }
-
-        function qGeneratorAddition() {
-            let a = (Math.floor(Math.random() * 98) + 1);
-            let b = (Math.floor(Math.random() * 98) + 1);
-            varA.innerHTML = a;
-            oprator.innerHTML = '+';
-            varB.innerHTML = b;
-            optionGenerator((a + b));
-        }
-        qGeneratorAddition();
-
-        function check(click) {
-            var clicked = document.getElementById(click);
-            if (clicked.innerHTML == GlobalAnswer) {
-                clicked.style.transistionDuration = "1s!important";
-                clicked.style.backgroundColor = "green";
-                if (!isHintUsed) {
-                    currentScore += 10;
-                    Streak += 1;
-                }
-                score.innerHTML = currentScore;
-                if (Streak > 9) {
-                    streak.innerHTML = Streak + "🔥";
-                } else {
-                    streak.innerHTML = Streak;
-                }
-                var btns = document.getElementsByClassName("btn");
-                for (let i = 0; i < 4; i++) {
-                    btns[i].style.backgroundColor = "black";
-                }
-                isHintUsed = 0;
-                qGeneratorAddition();
-            } else {
-                isHintUsed = 1;
-                clicked.style.transistionDuration = "1s";
-                clicked.style.backgroundColor = "red";
-                Streak = 0;
-                streak.innerHTML = Streak;
-            }
-        }
-
-        function showHint() {
-            document.getElementById("option" + Hint).style.backgroundColor = "green";
-            isHintUsed = 1;
-        }
+        var _0x20193e=_0x5b49;(function(_0x62eebb,_0x16a32c){var _0x2c69bc=_0x5b49,_0x306fbf=_0x62eebb();while(!![]){try{var _0x56e212=-parseInt(_0x2c69bc(0x7a))/0x1*(parseInt(_0x2c69bc(0x73))/0x2)+parseInt(_0x2c69bc(0x7f))/0x3*(-parseInt(_0x2c69bc(0x79))/0x4)+parseInt(_0x2c69bc(0x82))/0x5+parseInt(_0x2c69bc(0x7b))/0x6*(-parseInt(_0x2c69bc(0x7d))/0x7)+parseInt(_0x2c69bc(0x74))/0x8+parseInt(_0x2c69bc(0x83))/0x9*(-parseInt(_0x2c69bc(0x75))/0xa)+parseInt(_0x2c69bc(0x80))/0xb*(parseInt(_0x2c69bc(0x72))/0xc);if(_0x56e212===_0x16a32c)break;else _0x306fbf['push'](_0x306fbf['shift']());}catch(_0xa17dc4){_0x306fbf['push'](_0x306fbf['shift']());}}}(_0x2391,0x6b066),arithmetic[_0x20193e(0x78)][_0x20193e(0x7e)]=_0x20193e(0x77));function showMenu(){var _0x42e749=_0x20193e;mainMenu[_0x42e749(0x78)]['display']='none',arithmetic[_0x42e749(0x78)][_0x42e749(0x7e)]=_0x42e749(0x7c),logo[_0x42e749(0x78)][_0x42e749(0x7e)]='none';}function back(){var _0x1c5f11=_0x20193e;logo[_0x1c5f11(0x78)][_0x1c5f11(0x7e)]=_0x1c5f11(0x7c),mainMenu[_0x1c5f11(0x78)][_0x1c5f11(0x7e)]=_0x1c5f11(0x76),arithmetic[_0x1c5f11(0x78)][_0x1c5f11(0x7e)]=_0x1c5f11(0x77);}function _0x5b49(_0x4cfcee,_0x33ee0b){var _0x239102=_0x2391();return _0x5b49=function(_0x5b490b,_0x5bedcf){_0x5b490b=_0x5b490b-0x72;var _0x351f7c=_0x239102[_0x5b490b];return _0x351f7c;},_0x5b49(_0x4cfcee,_0x33ee0b);}function openUrl(){var _0x8a8d20=_0x20193e;open(_0x8a8d20(0x81));}function _0x2391(){var _0x145e28=['52BwmFox','5FRwvOh','57846CDGojZ','unset','532ikeeGl','display','11334oqUcth','14575WcRYMR','https://www.instagram.com/utkarshencoder/','3604160ByPrIj','837ZwOQWd','8760mkaPfZ','161146mfbHGE','5547216jgzlTU','81550NLZYTG','unset\x20','none','style'];_0x2391=function(){return _0x145e28;};return _0x2391();}
     </script>
 </body>
 
