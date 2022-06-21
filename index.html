@@ -22,18 +22,53 @@
         <div>
             <img id="logo" src="https://i.pinimg.com/736x/8f/7a/a3/8f7aa39c8f322935683ad1da07c64e80.jpg" alt="logo">
         </div>
+        <!-- Arithemtic windows -->
         <div id="arithmetic" class="alltype menu">
             <button class="btn fonts" onclick="location.href='addition.html'" id="plus">Addition<br>+</button>
             <button class="btn fonts" onclick=" location.href='substract.html'" id="minus">Substract<br>-</button>
             <button class="btn fonts " onclick=" location.href='multiply.html' " id="multi">Multiply<br>x</button>
             <button class="btn fonts" onclick=" location.href='divide.html'" id="div">Divide<br>÷</button>
+            <div id="scont" class="slidercontainer">
+                <p id="diff">Difficulty :</p>
+                <input id="difficultySlider" class="slider" type="range" min="15" max="80">
+            </div>
+            <br>
             <button style="padding: 10px;" class="btn fonts" onclick="back()">← Back</button>
-
         </div>
+
+        <!-- Main Menu -->
         <div id="mainMenu" class="menu ">
             <button class="btn marTop marBottom " onclick="showMenu() ">New Game</button>
+            <button class="btn marBottom " onclick="showScores()">High Scores</button>
             <button class="btn marBottom " onclick="openUrl() ">Contact Us</button>
-            <button class="btn marBottom " onclick="openUrl() ">Support</button>
+        </div>
+
+        <!-- High Score -->
+        <div id="hhscreen" class="menu">
+            <h1>High Scores</h1>
+            <table>
+                <tr>
+                    <th>Task</th>
+                    <th>Scores</th>
+                </tr>
+                <tr>
+                    <td>Addition</td>
+                    <td id="addHH">0</td>
+                </tr>
+                <tr>
+                    <td>Substraction</td>
+                    <td id="subHH">0</td>
+                </tr>
+                <tr>
+                    <td>Multiplication</td>
+                    <td id="mulHH">0</td>
+                </tr>
+                <tr>
+                    <td>Division</td>
+                    <td id="divHH">0</td>
+                </tr>
+            </table>
+            <button style="padding: 10px;margin-top: 20px;" class="btn fonts" onclick="back()">← Back</button>
         </div>
         <br>
 
@@ -41,7 +76,7 @@
 
     </div>
     <script>
-        var _0x20193e=_0x5b49;(function(_0x62eebb,_0x16a32c){var _0x2c69bc=_0x5b49,_0x306fbf=_0x62eebb();while(!![]){try{var _0x56e212=-parseInt(_0x2c69bc(0x7a))/0x1*(parseInt(_0x2c69bc(0x73))/0x2)+parseInt(_0x2c69bc(0x7f))/0x3*(-parseInt(_0x2c69bc(0x79))/0x4)+parseInt(_0x2c69bc(0x82))/0x5+parseInt(_0x2c69bc(0x7b))/0x6*(-parseInt(_0x2c69bc(0x7d))/0x7)+parseInt(_0x2c69bc(0x74))/0x8+parseInt(_0x2c69bc(0x83))/0x9*(-parseInt(_0x2c69bc(0x75))/0xa)+parseInt(_0x2c69bc(0x80))/0xb*(parseInt(_0x2c69bc(0x72))/0xc);if(_0x56e212===_0x16a32c)break;else _0x306fbf['push'](_0x306fbf['shift']());}catch(_0xa17dc4){_0x306fbf['push'](_0x306fbf['shift']());}}}(_0x2391,0x6b066),arithmetic[_0x20193e(0x78)][_0x20193e(0x7e)]=_0x20193e(0x77));function showMenu(){var _0x42e749=_0x20193e;mainMenu[_0x42e749(0x78)]['display']='none',arithmetic[_0x42e749(0x78)][_0x42e749(0x7e)]=_0x42e749(0x7c),logo[_0x42e749(0x78)][_0x42e749(0x7e)]='none';}function back(){var _0x1c5f11=_0x20193e;logo[_0x1c5f11(0x78)][_0x1c5f11(0x7e)]=_0x1c5f11(0x7c),mainMenu[_0x1c5f11(0x78)][_0x1c5f11(0x7e)]=_0x1c5f11(0x76),arithmetic[_0x1c5f11(0x78)][_0x1c5f11(0x7e)]=_0x1c5f11(0x77);}function _0x5b49(_0x4cfcee,_0x33ee0b){var _0x239102=_0x2391();return _0x5b49=function(_0x5b490b,_0x5bedcf){_0x5b490b=_0x5b490b-0x72;var _0x351f7c=_0x239102[_0x5b490b];return _0x351f7c;},_0x5b49(_0x4cfcee,_0x33ee0b);}function openUrl(){var _0x8a8d20=_0x20193e;open(_0x8a8d20(0x81));}function _0x2391(){var _0x145e28=['52BwmFox','5FRwvOh','57846CDGojZ','unset','532ikeeGl','display','11334oqUcth','14575WcRYMR','https://www.instagram.com/utkarshencoder/','3604160ByPrIj','837ZwOQWd','8760mkaPfZ','161146mfbHGE','5547216jgzlTU','81550NLZYTG','unset\x20','none','style'];_0x2391=function(){return _0x145e28;};return _0x2391();}
+        const _0x2799a4=_0xf016;(function(_0x50ce66,_0x498e5b){const _0x3b7e05=_0xf016,_0x3074b4=_0x50ce66();while(!![]){try{const _0x322fa7=parseInt(_0x3b7e05(0x182))/0x1*(parseInt(_0x3b7e05(0x185))/0x2)+-parseInt(_0x3b7e05(0x17d))/0x3+-parseInt(_0x3b7e05(0x187))/0x4*(parseInt(_0x3b7e05(0x181))/0x5)+parseInt(_0x3b7e05(0x199))/0x6*(parseInt(_0x3b7e05(0x17b))/0x7)+-parseInt(_0x3b7e05(0x19b))/0x8+parseInt(_0x3b7e05(0x184))/0x9*(-parseInt(_0x3b7e05(0x195))/0xa)+parseInt(_0x3b7e05(0x191))/0xb*(parseInt(_0x3b7e05(0x18e))/0xc);if(_0x322fa7===_0x498e5b)break;else _0x3074b4['push'](_0x3074b4['shift']());}catch(_0x463be4){_0x3074b4['push'](_0x3074b4['shift']());}}}(_0x285b,0x2c0b9),arithmetic['style'][_0x2799a4(0x186)]=_0x2799a4(0x190),hhscreen['style'][_0x2799a4(0x186)]=_0x2799a4(0x190));function _0xf016(_0x273880,_0x221ff8){const _0x285b0d=_0x285b();return _0xf016=function(_0xf0162,_0x504ce8){_0xf0162=_0xf0162-0x179;let _0x34b866=_0x285b0d[_0xf0162];return _0x34b866;},_0xf016(_0x273880,_0x221ff8);}function showScores(){const _0x218de4=_0x2799a4;mainMenu[_0x218de4(0x19c)][_0x218de4(0x186)]='none',hhscreen['style'][_0x218de4(0x186)]=_0x218de4(0x188),logo['style']['width']=_0x218de4(0x197),logo[_0x218de4(0x19c)]['marginTop']='0';if(localStorage[_0x218de4(0x17a)](_0x218de4(0x18a))!=null){let _0x22c02f=JSON[_0x218de4(0x183)](localStorage['getItem'](_0x218de4(0x18a)));addHH[_0x218de4(0x194)]=_0x22c02f['add'],subHH[_0x218de4(0x194)]=_0x22c02f[_0x218de4(0x193)],mulHH['innerHTML']=_0x22c02f[_0x218de4(0x179)],divHH['innerHTML']=_0x22c02f[_0x218de4(0x18f)];}}function showMenu(){const _0x416db6=_0x2799a4;slider(),mainMenu[_0x416db6(0x19c)]['display']=_0x416db6(0x190),arithmetic[_0x416db6(0x19c)][_0x416db6(0x186)]=_0x416db6(0x192),logo[_0x416db6(0x19c)]['display']=_0x416db6(0x190);}function back(){const _0x4ef5e9=_0x2799a4;logo[_0x4ef5e9(0x19c)][_0x4ef5e9(0x186)]='unset',mainMenu[_0x4ef5e9(0x19c)][_0x4ef5e9(0x186)]=_0x4ef5e9(0x18c),hhscreen[_0x4ef5e9(0x19c)]['display']='none',arithmetic[_0x4ef5e9(0x19c)][_0x4ef5e9(0x186)]='none',logo[_0x4ef5e9(0x19c)]['width']='120px';}function openUrl(){const _0x173b8c=_0x2799a4;open(_0x173b8c(0x18d));}function _0x285b(){const _0xff7a22=['style','color','mul','getItem','34699tXgcSZ','red','645648tqPqwJ','setItem','oninput','value','1090ivLgKh','1UzLfAo','parse','627867wARKjd','127142kBJEeo','display','1724MsSUNV','block','green','hhobject','getElementById','unset\x20','https://www.instagram.com/utkarshencoder/','228SXTWHd','div','none','379599rELYrP','unset','sub','innerHTML','20fKgEDD','borderColor','80px','difficulty','186WFPxJO','yellow','1950400YZawNS'];_0x285b=function(){return _0xff7a22;};return _0x285b();}let slid=document[_0x2799a4(0x18b)]('difficultySlider');slid[_0x2799a4(0x180)]=0x2f;localStorage['getItem']('difficulty')!=null&&(slid[_0x2799a4(0x180)]=0x50-parseInt(localStorage[_0x2799a4(0x17a)](_0x2799a4(0x198)))+0xf,slider());function slider(){const _0x4ae51f=_0x2799a4;let _0x26be39=slid[_0x4ae51f(0x180)];_0x26be39=0x50-_0x26be39+0xf;if(_0x26be39<=0x1e)scont[_0x4ae51f(0x19c)][_0x4ae51f(0x196)]=_0x4ae51f(0x17c),diff[_0x4ae51f(0x19c)][_0x4ae51f(0x19d)]=_0x4ae51f(0x17c);else _0x26be39<=0x32?(scont[_0x4ae51f(0x19c)][_0x4ae51f(0x196)]='yellow',diff[_0x4ae51f(0x19c)][_0x4ae51f(0x19d)]=_0x4ae51f(0x19a)):(scont[_0x4ae51f(0x19c)][_0x4ae51f(0x196)]=_0x4ae51f(0x189),diff[_0x4ae51f(0x19c)][_0x4ae51f(0x19d)]=_0x4ae51f(0x189));localStorage[_0x4ae51f(0x17e)]('difficulty',_0x26be39);}slid[_0x2799a4(0x17f)]=function(){slider();};
     </script>
 </body>
 
